@@ -11,6 +11,18 @@ function reverseWords(str) {
 
 }
 
+function reverseWords2(str) {
+ let newArr = []
+    let arr = str.split(' ')
+
+    for (let i = 0; i < arr.length; i++) {
+          newArr.push(arr[i].split('').reverse().join(''))
+
+    }
+    return newArr.join(' ')
+}
 console.log(reverseWords("This is an example!"))
+console.log(reverseWords2("This is an example!"))
+
 
 
