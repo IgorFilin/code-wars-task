@@ -12,3 +12,4 @@ function descendingOrder(n) {
 
 console.log(descendingOrder(145263))
 //Output: 654321
+
