@@ -19,3 +19,4 @@ function randomWholeNum() {
 }
 
 console.log(randomWholeNum())
+
