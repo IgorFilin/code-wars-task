@@ -40,7 +40,6 @@ function binarySearch2(array, value) {
   let count = 0;
 
   while (low <= high) {
-    debugger;
     count++;
     let mid = Math.floor((low + high) / 2);
     let tempValue = array[mid]; // Получаем значение свойства code текущего объекта
