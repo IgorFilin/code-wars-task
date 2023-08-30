@@ -15,10 +15,17 @@
 // bananas
 
 function solution(input, markers) {
-  const firstPattern = new RegExp(`${markers[0]}(.*?)${}`);
-  const secondPattern = new RegExp(`${markers[0]}(.*?)${markers[1]}`);
-  const temp = input.match(firstPattern);
-  return temp;
+  const firstPattern = new RegExp(`${markers[0]}.*?(\\n|$)`, "g");
+  const secondPattern = new RegExp(`${markers[1]}.*?(\\n|$)`, "g");
+
+  const firstStr = input.match(firstPattern)[0];
+  const secondStr = input.match(secondPattern)[0];
+  console.log(firstStr);
+  let result = input
+    .replace(firstStr, "\n")
+    .replace(/\s+\n/g, "\n")
+    .replace(secondStr, "");
+  return result.replace(/\n /g, "\n").trim();
 }
 
 console.log(
