@@ -12,6 +12,6 @@ function countRedBeads(n) {
   return n * 2 - 2;
 }
 
-console.log(countRedBeads(5));
+console.log(countRedBeads(3));
 
 // https://www.codewars.com/kata/58712dfa5c538b6fc7000569/train/javascript
