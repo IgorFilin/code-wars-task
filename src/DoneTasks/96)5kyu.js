@@ -20,8 +20,7 @@
 //  мы не знаем, пик это или нет).
 
 // Также остерегайтесь плато!!! [1, 2, 2, 2, 1] имеет пик,
-//  а [1, 2, 2, 2, 3] и [1, 2, 2, 2,
-// 2] нет. В случае пика плато возвращайте только положение
+//  а [1, 2, 2, 2, 3] и [1, 2, 2, 2, 2] нет. В случае пика плато возвращайте только положение
 //  и значение начала плато. Например: PickPeaks([1, 2, 2, 2, 1])
 //   возвращает {pos: [1], Peaks: [2]} (или эквивалент на других языках).
 
@@ -29,20 +28,28 @@
 
 function pickPeaks(arr) {
   const result = { pos: [], peaks: [] };
-  for (let i = 1; i < arr.length - 1; i++) {
-    console.log(arr[arr.length - 1]);
-    if (arr[i] > arr[i - 1] && arr[i] >= arr[i + 1]) {
+  let pick = false;
+  for (let i = 1; i <= arr.length - 2; i++) {
+    if (arr[i] === arr[i - 1]) {
+      continue;
+    }
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
       result.pos.push(i);
       result.peaks.push(arr[i]);
     }
-    if (arr[0] > arr[1] || arr[arr.length - 1] >= arr[arr.length - 2]) {
-      console.log(arr[arr.length - 1]);
-      return { pos: [], peaks: [] };
+    if (
+      (arr[i] > arr[i - 1] && arr[i] === arr[i + 1]) ||
+      (arr[i] > arr[i + 1] && arr[i] === arr[i - 1])
+    ) {
+      result.pos.push(i);
+      result.peaks.push(arr[i]);
     }
   }
   return result;
 }
 
-console.log(pickPeaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3]));
+console.log(pickPeaks([0, 1, 2, 5, 1, 0]));
 
 // https://www.codewars.com/kata/5279f6fe5ab7f447890006a7/train/javascript
+
+// Не решено!
