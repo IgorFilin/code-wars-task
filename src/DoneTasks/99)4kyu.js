@@ -61,18 +61,24 @@ function part(n) {
   // your code
   const combinateArray = [];
 
-  let subtrahend = 0;
-
   function combinate(paramN) {
-    let countN = paramN;
     let elemArray = [];
-    elemArray.push(countN);
-    combinateArray.push(elemArray);
 
-    if (countN === 1) {
+    elemArray.push(paramN);
+
+    if (n - paramN > 0) {
+      elemArray.push(n - 1);
+      // combinate(countN - 1);
+    }
+
+    // ===========================
+    combinateArray.push(elemArray);
+    // ===========================
+
+    if (paramN === 1) {
       return;
     }
-    combinate(countN - 1);
+    combinate(paramN - 1);
   }
   combinate(n);
   return combinateArray;
