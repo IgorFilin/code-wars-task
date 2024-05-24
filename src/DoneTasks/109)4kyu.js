@@ -71,4 +71,4 @@ function nextBigger(n) {
   return resultNumbersArray.length ? resultNumbersArray[0] : -1;
 }
 
-console.log(nextBigger(111));
+console.log(nextBigger(12));
