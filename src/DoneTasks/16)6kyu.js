@@ -6,17 +6,15 @@
 
 
 function digitalRoot(n) {
-    let result
-    if(n.toString().split('').length > 1){
-        let arr = n.toString().split('')
-        console.log(arr)
-        result = arr.reduce((acc,curr)=> {
-            return +acc + +curr
-        })
-    }
-    return result
+    if(n.toString().length === 1) return n
+    var arr = n.toString().split('')
+    var exit = +arr[0] + +arr[1]
+    console.log(arr.length === 2);
+    if (arr.length === 2 && exit.toString().length === 1) return exit
+    var result = arr.reduce((a, b) => +a + +b, 0)
+    return digitalRoot(result)
 }
 
-console.log(digitalRoot(405829))
+console.log(digitalRoot(456))
 
 
